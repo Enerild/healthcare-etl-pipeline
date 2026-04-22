@@ -1,0 +1,40 @@
+# Ruff configuration for the Healthcare ETL Pipeline project.
+# Docs: https://docs.astral.sh/ruff/configuration/
+
+line-length = 100
+target-version = "py311"
+
+exclude = [
+    ".venv",
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[lint]
+# Enable a sensible default rule set without being noisy.
+#   E, W  — pycodestyle errors and warnings
+#   F     — pyflakes (unused imports, undefined names)
+#   I     — isort (import sorting)
+#   B     — bugbear (likely bugs and design problems)
+#   UP    — pyupgrade (modern Python idioms)
+#   N     — pep8-naming (naming conventions)
+#   SIM   — simplify (redundant patterns)
+select = ["E", "W", "F", "I", "B", "UP", "N", "SIM"]
+
+# Ignore specific rules that clash with our style choices.
+ignore = [
+    "E501",  # Line too long (we let the formatter handle this)
+]
+
+[lint.per-file-ignores]
+# Tests can use longer names and skip some naming conventions.
+"tests/**/*.py" = ["N802", "N803"]
+# __init__.py often has unused imports by design (re-exports).
+"__init__.py" = ["F401"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"

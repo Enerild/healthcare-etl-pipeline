@@ -1,0 +1,15 @@
+.git
+.github
+.venv
+.idea
+.vscode
+__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+.ruff_cache
+tests/
+etl_local.db
+etl_local.db-journal
+*.log
+README.md
