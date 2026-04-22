@@ -31,6 +31,7 @@ services:
       DB_PASSWORD: etl_pass
       PYTHONPATH: /app
       PREFECT_TELEMETRY_ENABLED: "false"
+      PREFECT_HOME: /tmp/prefect
     volumes:
       - ./data:/app/data:ro
     command: python flows/etl_flow.py
