@@ -19,5 +19,8 @@ COPY . .
 
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
+ENV PREFECT_HOME=/tmp/prefect
+
+RUN mkdir -p /tmp/prefect /root/.prefect
 
 CMD ["python", "flows/etl_flow.py"]
